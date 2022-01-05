@@ -10,54 +10,7 @@ body {
     color: #ffffff;
     margin: 0;
 }
-@media only screen and (max-width: 700px) {
-        #switch {
-        padding-top: 0;
-    }
-        body {
-            padding: 3px;
-        }
-        #main {
-        text-align: center;
-        background-color: black;
-        margin: auto;
-        width: 100%;
-        height: 400px;
-        border-radius: 20px;
-        color: white;
-        font-weight: bold;
-        padding-top: 0;
-    }
-    input{
-        border-radius: 3px;
-        padding: 2px;
-        width: 100%;
-        border: none;
-        background: transparent;
-        box-shadow: 0.5px 0.3px 1px 2px #7f828b;
 
-    }
-    #goBtn,#trigger {
-        width: 30%;
-        box-shadow: 1px 0.5px 0.5px 2px #024af7;
-        margin-top: 8px;
-        padding: 5px;
-        margin-left: 0;
-    }
-    #goBtn:hover,#trigger:hover {
-        background-color: #024af7;
-        color: white;
-        font-weight: bold;
-    }
-    #body {
-        color: blue;
-        font-size: 4vw;
-
-    }
-    h1 {
-        font-variant: small-caps;
-    }
-}
 #main {
     text-align: center;
     background-color: black;
@@ -77,7 +30,7 @@ body {
 }
 #body {
     color: white;
-    font-size: x-large;
+    font-size: large;
 }
 .reload {
     background-color: darkcyan;
@@ -224,19 +177,78 @@ a:hover {
     width: 100%; 
     z-index: 1000;
 }
+@media only screen and (max-width: 700px) {
+        body{
+            padding: 10px;
+            overflow: hidden;
+        }
+        #switch {
+        padding-top: 0;
+        }
+        body {
+            padding: 3px;
+        }
+        #mainBody {
+            padding: 10px;
+            padding-right: 18px;
+        }
+        #main {
+        text-align: center;
+        background-color: black;
+        margin: auto;
+        width: 100%;
+        height: 300px;
+        border-radius: 20px;
+        color: white;
+        font-weight: bold;
+        padding-top: 0;
+        }
+    input{
+        border-radius: 3px;
+        padding: 2px;
+        width: 100%;
+        border: none;
+        background: transparent;
+        box-shadow: 0.5px 0.3px 1px 2px #7f828b;
+
+    }
+    .right {
+        padding-right: 10px;
+    }
+    #goBtn,#trigger {
+        width: 30%;
+        box-shadow: 1px 0.5px 0.5px 2px #024af7;
+        margin-top: 8px;
+        padding: 5px;
+        margin-left: 0;
+    }
+    #goBtn:hover,#trigger:hover {
+        background-color: #024af7;
+        color: white;
+        font-weight: bold;
+    }
+    #body {
+        color: blue;
+        font-size: 4vw;
+
+    }
+    h1 {
+        font-variant: small-caps;
+    }
+}
 </style>
 </head>
 <body>
+<div class="container">
+    <h1 id="mainHead" style="text-align: center;">Time Travela</h1>
 <div class="sticky">
-<div class="menu"><div class="left" id="left"><a class="activeNav" href="#">Home</a><a  onclick="switchProgram()" href="#">Age Calculator</a><a href="https://www.iamtsquare07.com/#portfolio" target="_blank">More Projects</a></div><div class="right"><button  id="menuBtn">|||</button></div></div>
+<div class="menu"><div class="left" id="left"><a class="activeNav" href="#">Home</a><a  onclick="switchProgram()" href="#">Age Calculator</a><a href="https://www.iamtsquare07.com/#portfolio" target="_blank">Portfolio</a></div><div class="right"><button  id="menuBtn">|||</button></div></div>
 </div>
 <div class="nav"><div class="clickable active" onclick="blackMode()">Dark Mode: <span id="darkSwitch">Off</span></div>
     <div class="clickable" id="programSwitch" onclick="switchProgram()">Switch App</div>
     <div class="clickable" onclick="closeMenu()">Close</div>
 </div>
 <div id="mainBody">
-<h1 id="mainHead" style="text-align: center;">Time Travela</h1>
-
 <div class="form">
     <p id="helper">Time travel through the past & future to know what's in store for you.</p>
     <form id="programForm">
