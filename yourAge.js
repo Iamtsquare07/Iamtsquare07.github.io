@@ -1,3 +1,14 @@
+var getAuthor = document.querySelector("#author");
+getAuthor.innerHTML =
+` <!--
+-----------------------------------------------
+Open Source Application
+Name:        Time Travela
+Version:     1.0.0
+Author:      Tsquare07
+Author Url:  https://www.iamtsquare07.com
+----------------------------------------------- 
+-->`;
 //Retrieving Date
 var targetDate = new Date(),
 yearNow = targetDate.getFullYear(),
@@ -15,22 +26,23 @@ function openNew(bool){
   }
 }
 
-let docBody = document.querySelector("#mainBody");
-let programbox = document.querySelector("#main")
-let programBody = document.querySelector("#body");
-let successMessage = document.querySelector("#success");
-let switchBtn = document.querySelector("#switch");
-//let loadImage = "https://www.sonscores.com/wp-content/uploads/2021/09/sonscore-load.gif";
-let loadImage = "images/sonscore-load.gif";
-let userAge = document.querySelector("#age");
-let playerYear = document.querySelector("#year");
+var docBody = document.querySelector("#mainBody"),
+programbox = document.querySelector("#main"),
+programBody = document.querySelector("#body"),
+successMessage = document.querySelector("#success"),
+switchBtn = document.querySelector("#switch"),
+//loadImage = "https://www.sonscores.com/wp-content/uploads/2021/09/sonscore-load.gif",
+loadImage = "images/sonscore-load.gif",
+userAge = document.querySelector("#age"),
+playerYear = document.querySelector("#year");
+function unloadMessage() {
+  return "Take a screenshot of your time travel profile to share with friends";
+}
+
 function setConfirmUnload(on) {//Warn user of losing data when closing the window
   window.onbeforeunload = (on) ? unloadMessage : null;
 }
 
-function unloadMessage() {
-  return "Are you sure you want to leave this page";
-}
 function yearFocus(){ playerYear.focus()}
 
 userAge.addEventListener('keypress', function (e) {
@@ -40,6 +52,7 @@ playerYear.addEventListener('keypress', function (e) {
 if (e.key === 'Enter') process();
 }); 
 
+//Generating a random background color
 const randomNum = Math.floor(Math.random() * 10);
 console.log(randomNum)
 function colorChange() {
@@ -77,9 +90,75 @@ switch(randomNum) {
 }
 }
 colorChange();
+var importantSwitch = document.querySelector("#important");
+importantSwitch.innerHTML = "Portfolio";
+function callPopup() {
+  const CookieService = {
+    setCookie(name, value, days) {
+        let expires = '';
+  
+        if (days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = '; expires=' + date.toUTCString();
+        }
+  
+        document.cookie = name + '=' + (value || '')  + expires + ';';
+    },
+  
+    getCookie(name) {
+        const cookies = document.cookie.split(';');
+  
+        for (const cookie of cookies) {
+            if (cookie.indexOf(name + '=') > -1) {
+                return cookie.split('=')[1];
+            }
+        }
+  
+        return null;
+    }
+  };
+  
+  const exit = e => {
+    const shouldExit =
+        [...e.target.classList].includes('exit-intent-popup') || // user clicks on mask
+        e.target.className === 'close' || // user clicks on the close icon
+        e.keyCode === 27; // user hits escape
+  
+    if (shouldExit) {
+        document.querySelector('.exit-intent-popup').classList.remove('visible');
+    }
+  };
+  
+  const mouseEvent = e => {
+    const shouldShowExitIntent = 
+        !e.toElement && 
+        !e.relatedTarget &&
+        e.clientY < 10;
+  
+    if (shouldShowExitIntent) {
+        document.removeEventListener('mouseout', mouseEvent);
+        document.querySelector('.exit-intent-popup').classList.add('visible');
+  
+        CookieService.setCookie('exitIntentShown', true, 30);
+    }
+  };
+  
+  if (!CookieService.getCookie('exitIntentShown')) {
+    setTimeout(() => {
+        document.addEventListener('mouseout', mouseEvent);
+        document.addEventListener('keydown', exit);
+        document.querySelector('.exit-intent-popup').addEventListener('click', exit);
+    }, 0);
+  }
+  
+}
 
 
+
+if (importantSwitch.innerHTML = "Portfolio"){
 function switchProgram() {
+  //Switching the application
   setConfirmUnload(false)
 successMessage.innerHTML = "";
 programBody.innerHTML = "";
@@ -105,8 +184,7 @@ function focusOnYear() {Year.focus()};
 Birth.addEventListener('keypress', function (e) {
   if (e.key === 'Enter') focusOnYear();
 }); // Change focus
- //Age Calculator
-
+ //Start of Age Calculator application
 theTrigger.addEventListener('click', run = () => {
 let ranMessesges = ["Hang on!","Let's go there!","Off we go!","You're already there!","How about that!", "You know you will!","Trust that!"],
 ranmessage = ["You desearve some respect!","Take pride in that!!","You're a hot cake!","C'mon be proud!","Damn legend.","Common! you fine wine.","Look at you!"],
@@ -120,7 +198,8 @@ monthInString = ['','January','February','March','April','May','June','July','Au
 console.log(yearNow,monthNow,day)
 function ageCalculator(birthdate,currentYear){
   let newUserAge = currentYear - birthdate;
-  console.log(bbmm,bmm)
+  console.log(bbmm,bmm);
+  //Checking the the day of the month to assign the appropriate suffix
   const checkDay = (val) => {
     switch(val){
       case(01):
@@ -158,13 +237,13 @@ function ageCalculator(birthdate,currentYear){
   } else if (newUserAge > 0 && bbmm <= bmm & bbdd <= bdd) {//Check if the users Birthday has reached
     return `You are ${newUserAge} years old, ${randomM}`;
   }else if (newUserAge < 0) {
-    function removeBtn(){
+    function removeBtn(){//removing recheck button on certain conditions
       setTimeout(() => {
         document.getElementById("re-check").style.display = "none";
       }, 3);
       
     }
-    removeBtn()
+    removeBtn();
     return `You are trying to check a year in the past, switch to: <br><button class="reload" onclick="location.reload()">Time Travela</button>`;
   }else {
     return "Invalid birthdate or year"
@@ -196,13 +275,16 @@ Year.addEventListener('keypress', function (e) {
 if (e.key === 'Enter') run();
 });
 }
+}
+importantSwitch.href="https://www.iamtsquare07.com/#portfolio";
 let count = 0;
 count++
 
 
-
+if(importantSwitch.innerHTML = "Portfolio"){
 function process(){
-  let fMessages = ["Welcome to the Future, You're now so rich!","According to what I see, You are now a professional.","I know your secrets, but let's just pretend I did'nt. I can't do this, you have 4 children.","I can't believe what I am seeing, You now own 3 electric cars?","Wow! I am out of words,  You lucky bastard :)😂","Now, this is what I called a bright future."],
+  setConfirmUnload(true)
+  let fMessages = ["Never seen you this happy in the past, You're now so rich!","According to what I see, You are now a professional.","I know your secrets, but let's just pretend I did'nt. I can't do this, you have 4 children.","I can't believe what I am seeing, You now own 3 electric cars?","Wow! I am out of words,  You lucky bastard :)😂","Now, this is what I called a bright future."],
   pMessages = ["Yeehoo! this is the past, this old boys have no idea what Bitcoin mean, WTF!","I bet you must have loved this, except for this RAM, Damn this old Gadget!","There is nothing worth regretting right here, for God's sake there is Facebook or Insta","Well, you better be right where you are now buddy! unless you enjoy riding a horse.","Truth be told, you missed Nothing in the past depending on what I am seeing","I bet you won't want to be here, I can't believe this people are surviving here."],
   lMessages = ["you have got to be kidding me, you can't remember this?","Well, if you don't remember this, I can't help you.","But you think this is from the past? LOL!","Are you serious? This is like yesterday.","I'll tell you want, stop playing around here.","Let's say you thought you were happier, but you are now better."],
   ranNum = Math.floor(Math.random()*6),
@@ -302,7 +384,9 @@ if (userAge.value.length > 1 && playerYear.value.length > 1){
 }else {
   console.log("Something went wrong");
 }
+callPopup();
 
+}
 }
 /*
 let theAge = Number(prompt("Enter your age", "23"));
