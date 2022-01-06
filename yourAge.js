@@ -230,11 +230,13 @@ function ageCalculator(birthdate,currentYear){
 
   if (newUserAge > 0 && bbmm > bmm && bbdd > bdd && byy < yearNow){//Check if the users birth year has reached and if it is not the current date.
     return `You were ${newUserAge} years in ${byy}, not current date though, but hey! ${randomM}`;
-  }else if(newUserAge > 0 && bbmm > bmm && bbdd > bdd && byy > yearNow){//Check if the users birth year has reached and if it is not the current date.
+  }else if(newUserAge > 0 && byy > yearNow){//Check if the users birth year has reached and if it is not the current date.
     return `You will be ${newUserAge} years in ${byy}, You're time travelling now right? why not use time travela.`;
   } else if(newUserAge > 0 && bbmm > bmm && bbdd > bdd){//Check if the users birth year has reached but his birthday hasn't reached yet
     return `You are ${newUserAge - 1} years old, You will be ${newUserAge} years by ${bbdd}${checkDay(bbdd)} ${checkMonth(bbmm)} ${byy}, ${randomMessesge}`;
-  } else if (newUserAge > 0 && bbmm <= bmm & bbdd <= bdd) {//Check if the users Birthday has reached
+  } else if(newUserAge > 0 && bbmm === bmm && bbdd > bdd){//Check if the users birth year has reached but his birthday hasn't reached yet
+    return `You are ${newUserAge - 1} years old, You will be ${newUserAge} years by ${bbdd}${checkDay(bbdd)} ${checkMonth(bbmm)} ${byy}, ${randomMessesge}`;
+  } else if (newUserAge > 0 && bbmm <= bmm && bbdd <= bdd) {//Check if the users Birthday has reached
     return `You are ${newUserAge} years old, ${randomM}`;
   }else if (newUserAge < 0) {
     function removeBtn(){//removing recheck button on certain conditions
@@ -305,7 +307,7 @@ let AI = document.querySelector("#Ai");
 let Relationship = ["Single","Married","Divorced","Complicated"],
 Cars = [3,4,5,6,7,8,9,10,12,1],
 Job = ["Programmer","Social Media Influencer","Alaye","Doctor","Bitcoin Trader","CEO","Pastor","Artist","Engineer","Gamer"],
-Children = [2,3,4,5,6,7,8,9,10,"None"],
+Children = [2,3,4,5,6,7,"Unknown",4,1,"None"],
 Networth = ["1 Million","50 Million","70 Million","Broke","100 Million","10 Billion","100 Billion","700 Billion","1 Billion","It is well"],
 UploadedMind = ["Mind Detected","Corrupted","No Mind Detected","Error 370"],
 aiPicker = Math.floor(Math.random()*10),
