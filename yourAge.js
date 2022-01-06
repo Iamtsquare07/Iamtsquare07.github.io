@@ -352,7 +352,7 @@ function yourAge(age,year){
   }else if(newAge === age){
       return `You are ${newAge} years in ${year}. But why ${year}? you can use Age Calculator, I am not good at this.`;
   }else if (newAge > 0){
-    return `Welcome to the Future<br><br>You are now ${newAge} years, We are in ${year}.<br><br><span style="color:aqua;">Looking you up...</span><br><br> ${randomFTMessage}`;
+    return `Welcome to the Future<br><br>You are now ${newAge} years, We are in ${year}.<br><br><span style="color:aqua;">Looking you up...</span><br><img width="170px" height: auto; src="https://wallpaperaccess.com/full/1371433.jpg"></img><br> ${randomFTMessage}`;
   }else if(newAge < 0){
     return `The year is ${year}, it was ${Math.abs(newAge)} years before you were born.<br><br><span style="color:aqua;">Checking what the future look like: </span><br><br> ${randomPmessage}`;
   }
