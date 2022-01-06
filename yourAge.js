@@ -202,8 +202,8 @@ count++
 
 
 function process(){
-  let fMessages = ["Welcome to the Future, You now so rich!","According to what I see, You are now a professional.","I know your secrets, but let's just pretend I did'nt. I can't do this, you have 4 children.","I can't believe what I am seeing, 3 electric cars?","Wow! now I am out of words,  You lucky bastard :)😂","Now, this is what I called a bright future."],
-  pMessages = ["Yeehoo! this is the past, them boys have no idea what you're talking about.","I bet you must have loved this, except this RAM, Damn this!","There is nothing worth regretting right here.","Well, you better be right where you are now buddy!","Truth be told, you missed Nothing","I bet you won't want to be here, I can't believe there are surviving."],
+  let fMessages = ["Welcome to the Future, You're now so rich!","According to what I see, You are now a professional.","I know your secrets, but let's just pretend I did'nt. I can't do this, you have 4 children.","I can't believe what I am seeing, You now own 3 electric cars?","Wow! I am out of words,  You lucky bastard :)😂","Now, this is what I called a bright future."],
+  pMessages = ["Yeehoo! this is the past, this old boys have no idea what Bitcoin mean, WTF!","I bet you must have loved this, except for this RAM, Damn this old Gadget!","There is nothing worth regretting right here, for God's sake there is Facebook or Insta","Well, you better be right where you are now buddy! unless you enjoy riding a horse.","Truth be told, you missed Nothing in the past depending on what I am seeing","I bet you won't want to be here, I can't believe this people are surviving here."],
   lMessages = ["you have got to be kidding me, you can't remember this?","Well, if you don't remember this, I can't help you.","But you think this is from the past? LOL!","Are you serious? This is like yesterday.","I'll tell you want, stop playing around here.","Let's say you thought you were happier, but you are now better."],
   ranNum = Math.floor(Math.random()*6),
   randomFTMessage = fMessages[ranNum],
@@ -270,9 +270,9 @@ function yourAge(age,year){
   }else if(newAge === age){
       return `You are ${newAge} years in ${year}. But why ${year}? you can use Age Calculator, I am not good at this.`;
   }else if (newAge > 0){
-    return `You will be ${newAge} years in the year ${year}, ${randomFTMessage}`;
+    return `Welcome to the Future<br><br>You are now ${newAge} years, We are in ${year}.<br><br><span style="color:aqua;">Looking you up...</span><br><br> ${randomFTMessage}`;
   }else if(newAge < 0){
-    return `The year ${year} was ${Math.abs(newAge)} years before you were born, ${randomPmessage}`;
+    return `The year is ${year}, it was ${Math.abs(newAge)} years before you were born.<br><br><span style="color:aqua;">Checking what the future look like: </span><br><br> ${randomPmessage}`;
   }
 }
 
@@ -288,7 +288,9 @@ if (userAge.value.length > 1 && playerYear.value.length > 1){
       programBody.innerHTML = yourAge(newAgeValue,newYear) + `<br><div id="Ai"></div><br><button class="reload" onclick="process()">Re-check</button>`;
       successMessage.innerHTML = "Successful!";
       switchBtn.innerHTML = `<span>Switch To: </span><button id="mySwitch" onclick="switchProgram()">Age Calculator</button>`;
-      ai(true);
+      if (newYear > yearNow){
+        ai(true);
+      }
     }, 2000)
   }, 700)
 }else if(userAge.value == ""){
