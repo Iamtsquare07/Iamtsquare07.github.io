@@ -280,11 +280,10 @@ importantSwitch.href="https://www.iamtsquare07.com/#portfolio";
 let count = 0;
 count++
 
-
 if(importantSwitch.innerHTML = "Portfolio"){
 function process(){
   setConfirmUnload(true)
-  let fMessages = ["Never seen you this happy in the past, You're now so rich!","According to what I see, You are now a professional.","I know your secrets, but let's just pretend I did'nt. I can't do this, you have 4 children.","I can't believe what I am seeing, You now own 3 electric cars?","Wow! I am out of words,  You lucky bastard :)😂","Now, this is what I called a bright future."],
+  let fMessages = ["Never seen you this happy in the past, You're now so rich!","According to what I see, You are now a professional.","I know your secrets, but let's just pretend I did'nt. I can't do this, you are in love.","I can't believe what I am seeing, You now own 3 electric cars?","Wow! I am out of words,  You lucky bastard :)😂","Now, this is what I called a bright future."],
   pMessages = ["Yeehoo! this is the past, this old boys have no idea what Bitcoin mean, WTF!","I bet you must have loved this, except for this RAM, Damn this old Gadget!","There is nothing worth regretting right here, for God's sake there is Facebook or Insta","Well, you better be right where you are now buddy! unless you enjoy riding a horse.","Truth be told, you missed Nothing in the past depending on what I am seeing","I bet you won't want to be here, I can't believe this people are surviving here."],
   lMessages = ["you have got to be kidding me, you can't remember this?","Well, if you don't remember this, I can't help you.","But you think this is from the past? LOL!","Are you serious? This is like yesterday.","I'll tell you want, stop playing around here.","Let's say you thought you were happier, but you are now better."],
   ranNum = Math.floor(Math.random()*6),
@@ -304,7 +303,7 @@ function twentyTwenty(y){
 function ai(input){
 let AI = document.querySelector("#Ai");
 let Relationship = ["Single","Married","Divorced","Complicated"],
-Cars = [3,4,5,6,7,8,9,10,12,27],
+Cars = [3,4,5,6,7,8,9,10,12,1],
 Job = ["Programmer","Social Media Influencer","Alaye","Doctor","Bitcoin Trader","CEO","Pastor","Artist","Engineer","Gamer"],
 Children = [2,3,4,5,6,7,8,9,10,"None"],
 Networth = ["1 Million","50 Million","70 Million","Broke","100 Million","10 Billion","100 Billion","700 Billion","1 Billion","It is well"],
