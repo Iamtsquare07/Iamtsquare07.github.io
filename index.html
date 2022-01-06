@@ -4,6 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
 <title>Time Travela</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 
 body {
@@ -19,16 +20,16 @@ body {
 -webkit-animation-name: fade;
 -webkit-animation-duration: 2s;
 animation-name: fade;
-animation-duration: 10s;
+animation-duration: 7s;
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .1} 
+  from {opacity: .3} 
   to {opacity: 1}
 }
 
 @keyframes fade {
-  from {opacity: .1} 
+  from {opacity: .3} 
   to {opacity: 1}
 }
 #main {
@@ -87,7 +88,7 @@ input{
     font-weight: bold;
 }
 #body {
-    color: blue;
+    color: #cad6fa !important;
     font-size: 4vw;
 
 }
@@ -239,6 +240,50 @@ table {
 }
 tr:nth-child(odd){background-color: #8d97b4;border-radius: 3px;}
 tr:hover {background-color: rgb(125, 143, 241);}
+/*Pop up styles */
+.exit-intent-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 99999999999 !important;
+    background: rgba(33, 33, 33, 0.8);
+    transform: translateY(60%) scale(0);
+    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.exit-intent-popup.visible {
+    transform: translateY(0) scale(1);
+}
+
+.myModal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Popup-specific styles */
+.myModal {
+    background: darkblue;
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center;
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 550;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    width: 10px;
+    height: 10px;
+}
+
 /*Responsive Styles */
 @media only screen and (max-width: 339px) {
     .left {
@@ -258,7 +303,7 @@ tr:hover {background-color: rgb(125, 143, 241);}
 
 @media only screen and (min-width: 700px) {
     #body {
-    color: white;
+    color: #cad6fa;
     font-size: large;
     }
         #main {
@@ -422,10 +467,20 @@ tr:hover {background-color: rgb(125, 143, 241);}
 </style>
 </head>
 <body>
+<div id="author"></div>
 <div class="container">
+    <div class="exit-intent-popup">
+        <div class="myModal">
+            <h4 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;color: goldenrod;font-variant: small-caps;">Are you leaving?</h4>
+            <p>I will miss you😥 <br><br>But wait, have you taken a screenshot of your time travel profile?
+            <br>Even if you don't want to show me to your friends, atleast to remember me.😍
+            </p>
+            <span class="close">x</span>
+        </div>
+    </div>
     <h1 id="mainHead">Time <span class="h1span">Travel<span class="h1span2">a</span></h1>
 <div class="sticky">
-<div class="menu"><div class="left" id="left"><a class="activeNav" href="#">Home</a><a  onclick="switchProgram()" href="#">Age Calculator</a><a href="https://www.iamtsquare07.com/#portfolio" target="_blank">Portfolio</a></div><div class="right"><button  id="menuBtn">|||</button></div></div>
+<div class="menu"><div class="left" id="left"><a class="activeNav" href="#">Home</a><a  onclick="switchProgram()" href="#">Age Calculator</a><a id="important" href="#" target="_blank"></a></div><div class="right"><button  id="menuBtn">|||</button></div></div>
 </div>
 <div class="nav"><div class="clickable active" onclick="blackMode()">Dark Mode: <span id="darkSwitch">Off</span></div>
     <div class="clickable" id="programSwitch" onclick="switchProgram()">Switch App</div>
@@ -450,12 +505,10 @@ tr:hover {background-color: rgb(125, 143, 241);}
     <br>
     <br>
     <div id="switch"></div>
-    
 </div>
 </div>
 </div>
-<div style=" background-color: #024af7;padding: 5px;margin: auto;width: fit-content;border-radius: 4px;"><a style="padding-left: 0px;" href="https://www.facebook.com/sharer/sharer.php?u=https://iamtsquare07.github.io/" target="_blank">SHARE</a></div>
+<div style=" background-color: #024af7;padding: 5px;margin: auto;width: fit-content;border-radius: 4px;font-weight: 700;"><a style="padding-left: 0px;" href="https://www.facebook.com/sharer/sharer.php?u=https://iamtsquare07.github.io/" target="_blank"><i class="fa fa-share-alt"></i> SHARE</a></div>
 <script src="yourAge.js"></script>
-
 </body>
 </html>
