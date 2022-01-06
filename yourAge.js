@@ -7,6 +7,13 @@ month = targetDate.getMonth(),
 monthNow = months[month];
 
 var getInput = document.querySelector("#year");
+function openNew(bool){
+  if(bool){
+    window.open("https://iamtsquare07.github.io/", "_self")
+  }else {
+    window.open("https://iamtsquare07.github.io/")
+  }
+}
 
 let docBody = document.querySelector("#mainBody");
 let programbox = document.querySelector("#main")
@@ -141,7 +148,7 @@ function ageCalculator(birthdate,currentYear){
       return monthInString[bbmm] //Convert months to strings
     }
   }
- 
+
   if (newUserAge > 0 && bbmm > bmm && bbdd > bdd && byy < yearNow){//Check if the users birth year has reached and if it is not the current date.
     return `You were ${newUserAge} years in ${byy}, not current date though, but hey! ${randomM}`;
   }else if(newUserAge > 0 && bbmm > bmm && bbdd > bdd && byy > yearNow){//Check if the users birth year has reached and if it is not the current date.
@@ -163,12 +170,13 @@ function ageCalculator(birthdate,currentYear){
     return "Invalid birthdate or year"
   }
   }
+
   if (Year.value.length > 1 && Birth.value.length > 1){
     setTimeout(() => {
       successMessage.innerHTML = "Calculation in Progress...";
       programBody.innerHTML = `<img src="${loadImage}" width="50px" height="auto">`;
       setTimeout(() => {
-        programBody.innerHTML = ageCalculator(bbyy,byy) + `<br><button class="reload" id="re-check" onclick="run()">Re-check</button>`;
+        programBody.innerHTML = ageCalculator(bbyy,byy) + `<br><br><br><div id="Ai"></div><br><br><br><button class="reload" id="re-check" onclick="run()">Re-check</button>`;
         successMessage.innerHTML = "Calculation Completed!"
         switchBtn.innerHTML = `<span>Switch To: </span><button id="mySwitch" onclick="location.reload(true)">Time Travela</button>`;
       }, 2000)
@@ -210,6 +218,49 @@ function twentyTwenty(y){
     return "";
   }
 }
+//An AI Algorithm for user persona
+function ai(input){
+let AI = document.querySelector("#Ai");
+let Relationship = ["Single","Married","Divorced","Complicated"],
+Cars = [3,4,5,6,7,8,9,10,12,27],
+Job = ["Programmer","Social Media Influencer","Alaye","Doctor","Bitcoin Trader","CEO","Pastor","Artist","Engineer","Gamer"],
+Children = [2,3,4,5,6,7,8,9,10,"None"],
+Networth = ["1 Million","50 Million","70 Million","Broke","100 Million","10 Billion","100 Billion","700 Billion","1 Billion","It is well"],
+UploadedMind = ["Yes","Corrupted","No","Error 370"],
+aiPicker = Math.floor(Math.random()*10),
+aiRandom = Math.floor(Math.random()*4)
+  setTimeout(() => {
+    AI.innerHTML = `<h4 style="color:goldenrod">Your Profile In ${newYear}</h4><table>
+<tr>
+    <td><b>Relationship Status:</b></td>
+    <td>${Relationship[aiRandom]}</td>
+</tr>
+<tr>
+    <td><b>Cars:</b></td>
+    <td>${Cars[aiPicker]}</td>
+</tr>
+<tr>
+    <td><b>Job Title:</b></td>
+    <td>${Job[aiPicker]}</td>
+</tr>
+<tr>
+    <td><b>Children:</b></td>
+    <td>${Children[aiPicker]}</td>
+</tr>
+<tr>
+    <td><b>Networth:</b></td>
+    <td>${Networth[aiPicker]}</td>
+</tr>
+<tr>
+    <td>Uploaded Mind Status:</td>
+    <td>${UploadedMind[aiRandom]}</td>
+</tr>
+</table>`;
+    if(input){
+
+    }
+  }, 1000);
+}
 //Converting current years to get real age
 function yourAge(age,year){
   const yearDifference = year - yearNow;
@@ -234,9 +285,10 @@ if (userAge.value.length > 1 && playerYear.value.length > 1){
     successMessage.innerHTML = "Querying Time Machine...";
     programBody.innerHTML = `<img src="${loadImage}" width="50px" height="auto">`;
     setTimeout(() => {
-      programBody.innerHTML = yourAge(newAgeValue,newYear) + `<br><button class="reload" onclick="process()">Re-check</button>`;
+      programBody.innerHTML = yourAge(newAgeValue,newYear) + `<br><div id="Ai"></div><br><button class="reload" onclick="process()">Re-check</button>`;
       successMessage.innerHTML = "Successful!";
       switchBtn.innerHTML = `<span>Switch To: </span><button id="mySwitch" onclick="switchProgram()">Age Calculator</button>`;
+      ai(true);
     }, 2000)
   }, 700)
 }else if(userAge.value == ""){
@@ -289,20 +341,25 @@ docBody.addEventListener("click", closeMenu = () => {
   }
 })
 let modeON = true;
-let darkModeSwitch = document.querySelector("#darkSwitch")
+let darkModeSwitch = document.querySelector("#darkSwitch");
+var theHeading = document.querySelector("#mainHead");
+var theSpanH1 = document.querySelector(".h1span2");
 const blackMode = () => {
-  
   if (modeON){
-    document.body.style.backgroundColor = "black";
-  document.body.style.color = "#caeaff";
+  document.body.style.backgroundColor = "black";
+  document.body.style.color = "#caeaff !important";
   programbox.style.backgroundColor = "#001f33";
-  darkModeSwitch.innerHTML = "On"
+  darkModeSwitch.innerHTML = "On";
   modeON = false;
+  theHeading.style.color = "#0000ff";
+  theSpanH1.style.color = "#0000ff";
   }else {
     colorChange();
     modeON = true;
     document.body.style.color = "white";
-    darkModeSwitch.innerHTML = "Off"
+    darkModeSwitch.innerHTML = "Off";
+    theHeading.style.color = "black";
+    theSpanH1.style.color = "black";
   }
 
 }
