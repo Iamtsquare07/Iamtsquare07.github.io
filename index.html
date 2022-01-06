@@ -164,6 +164,9 @@ font-variant: small-caps;
 cursor: pointer;
 padding: 5px;
 }
+.clickable a {
+    padding: 0px;
+}
 .active {
 background-color: cadetblue;
 }
@@ -282,6 +285,9 @@ tr:hover {background-color: rgb(125, 143, 241);}
     cursor: pointer;
     width: 10px;
     height: 10px;
+}
+.menu-item {
+    margin-left: 5px;
 }
 
 /*Responsive Styles */
@@ -431,7 +437,7 @@ tr:hover {background-color: rgb(125, 143, 241);}
     padding-bottom: 0;
     }
     a {
-    margin-left: 10px;
+    margin-left: 0;
     text-decoration: none;
     padding: 5px;
     color: white;
@@ -480,9 +486,10 @@ tr:hover {background-color: rgb(125, 143, 241);}
     </div>
     <h1 id="mainHead">Time <span class="h1span">Travel<span class="h1span2">a</span></h1>
 <div class="sticky">
-<div class="menu"><div class="left" id="left"><a class="activeNav" href="#">Home</a><a  onclick="switchProgram()" href="#">Age Calculator</a><a id="important" href="#" target="_blank"></a></div><div class="right"><button  id="menuBtn">|||</button></div></div>
+<div class="menu"><div class="left" id="left"><a class="activeNav" href="#">Home</a><a class="menu-item"  onclick="switchProgram()" href="#">Age Calculator</a><a class="menu-item" id="important" href="#" target="_blank"></a></div><div class="right"><button  id="menuBtn">|||</button></div></div>
 </div>
 <div class="nav"><div class="clickable active" onclick="blackMode()">Dark Mode: <span id="darkSwitch">Off</span></div>
+<div class="clickable"><a href="https://www.iamtsquare07.com/#portfolio" target="_blank">Portfolio <i class="fa fa-external-link" aria-hidden="true"></i></a></div>
     <div class="clickable" id="programSwitch" onclick="switchProgram()">Switch App</div>
     <div class="clickable" onclick="closeMenu()">Close</div>
 </div>
