@@ -374,8 +374,8 @@ if (userAge.value.length > 1 && playerYear.value.length > 1){
       if (newYear > yearNow){
         ai(true);
       }
-    }, 2000)
-  }, 700)
+    }, 5000)
+  }, 1000)
 }else if(userAge.value == ""){
   successMessage.innerHTML = "Please add you age";
   userAge.focus();
