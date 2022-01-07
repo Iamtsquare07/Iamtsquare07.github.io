@@ -31,7 +31,7 @@ programbox = document.querySelector("#main"),
 programBody = document.querySelector("#body"),
 successMessage = document.querySelector("#success"),
 switchBtn = document.querySelector("#switch"),
-//loadImage = "https://www.sonscores.com/wp-content/uploads/2021/09/sonscore-load.gif",
+//loadImage = "https://iamtsquare07.github.io/images/sonscore-load.gif",
 loadImage = "images/sonscore-load.gif",
 userAge = document.querySelector("#age"),
 playerYear = document.querySelector("#year");
@@ -152,6 +152,28 @@ function callPopup() {
     }, 0);
   }
   
+//Mobile exit intent
+setTimeout(() => {
+  document.addEventListener("scroll", scrollSpeed);
+}, 10000);
+
+
+scrollSpeed = () => {
+  lastPosition = window.scrollY;
+  setTimeout(() => {
+    newPosition = window.scrollY;
+  }, 100);
+  currentSpeed = newPosition - lastPosition;
+  //console.log(currentSpeed);
+
+  if (currentSpeed > 10) {
+    console.log("Exit intent popup triggered");
+    document.querySelector('.exit-intent-popup').classList.add('visible');
+    document.removeEventListener("scroll", scrollSpeed);
+  }
+};
+
+//End
 }
 
 
