@@ -153,26 +153,34 @@ function callPopup() {
   }
   
 //Mobile exit intent
-setTimeout(() => {
-  document.addEventListener("scroll", scrollSpeed);
-}, 10000);
-
-
-scrollSpeed = () => {
-  lastPosition = window.scrollY;
-  setTimeout(() => {
-    newPosition = window.scrollY;
-  }, 100);
-  currentSpeed = newPosition - lastPosition;
-  //console.log(currentSpeed);
-
-  if (currentSpeed > 10) {
-    console.log("Exit intent popup triggered");
-    document.querySelector('.exit-intent-popup').classList.add('visible');
-    document.removeEventListener("scroll", scrollSpeed);
+function checkDevice(mobile) {
+  if (mobile.matches) { // If media query matches
+      setTimeout(() => {
+          document.addEventListener("scroll", scrollSpeed);
+        }, 10000);
+        
+        scrollSpeed = () => {
+          lastPosition = window.scrollY;
+          setTimeout(() => {
+            newPosition = window.scrollY;
+          }, 100);
+          currentSpeed = newPosition - lastPosition;
+          //console.log(currentSpeed);
+        
+          if (currentSpeed > 10) {
+            console.log("Exit intent popup triggered");
+            document.querySelector('.exit-intent-popup').classList.add('visible');
+            document.removeEventListener("scroll", scrollSpeed);
+          }
+        };
+        console.log("Mobile User");
+  } else {
+   //document.body.style.backgroundColor = "pink";
+   console.log("Desktop user");
   }
-};
-
+}
+let mobile = window.matchMedia("(max-width: 700px)");
+checkDevice(mobile);
 //End
 }
 
