@@ -9,6 +9,7 @@ Author:      Tsquare07
 Author Url:  https://www.iamtsquare07.com
 ----------------------------------------------- 
 -->`;
+
 //Retrieving Date
 var targetDate = new Date(),
 yearNow = targetDate.getFullYear(),
@@ -31,6 +32,7 @@ programbox = document.querySelector("#main"),
 programBody = document.querySelector("#body"),
 successMessage = document.querySelector("#success"),
 switchBtn = document.querySelector("#switch"),
+username = prompt("What is your name?", "Travela"),
 //loadImage = "https://iamtsquare07.github.io/images/sonscore-load.gif",
 loadImage = "images/sonscore-load.gif",
 userAge = document.querySelector("#age"),
@@ -139,7 +141,7 @@ function callPopup() {
     if (shouldShowExitIntent) {
         document.removeEventListener('mouseout', mouseEvent);
         document.querySelector('.exit-intent-popup').classList.add('visible');
-  
+       console.log("Desktop exit intent popup is triggered")
         CookieService.setCookie('exitIntentShown', true, 30);
     }
   };
@@ -168,14 +170,13 @@ function checkDevice(mobile) {
           //console.log(currentSpeed);
         
           if (currentSpeed > 10) {
-            console.log("Exit intent popup triggered");
+            console.log("Mobile exit intent popup triggered");
             document.querySelector('.exit-intent-popup').classList.add('visible');
             document.removeEventListener("scroll", scrollSpeed);
           }
         };
         console.log("Mobile User");
   } else {
-   //document.body.style.backgroundColor = "pink";
    console.log("Desktop user");
   }
 }
@@ -258,17 +259,19 @@ function ageCalculator(birthdate,currentYear){
     }
   }
 
-  if (newUserAge > 0 && bbmm > bmm && bbdd > bdd && byy < yearNow){//Check if the users birth year has reached and if it is not the current date.
+  if (newUserAge > 0 && byy < yearNow){//Check if the users birth year has reached and if it is not the current date.
     return `You were ${newUserAge} years in ${byy}, not current date though, but hey! ${randomM}`;
   }else if(newUserAge > 0 && byy > yearNow){//Check if the users birth year has reached and if it is not the current date.
     return `You will be ${newUserAge} years in ${byy}, You're time travelling now right? why not use time travela.`;
-  } else if(newUserAge > 0 && bbmm > bmm && bbdd > bdd){//Check if the users birth year has reached but his birthday hasn't reached yet
-    return `You are ${newUserAge - 1} years old, You will be ${newUserAge} years by ${bbdd}${checkDay(bbdd)} ${checkMonth(bbmm)} ${byy}, ${randomMessesge}`;
-  } else if(newUserAge > 0 && bbmm === bmm && bbdd > bdd){//Check if the users birth year has reached but his birthday hasn't reached yet
-    return `You are ${newUserAge - 1} years old, You will be ${newUserAge} years by ${bbdd}${checkDay(bbdd)} ${checkMonth(bbmm)} ${byy}, ${randomMessesge}`;
+  } else if (newUserAge > 0 && bbmm == bmm && bbdd == bdd && byy) {
+    return `You are ${newUserAge} years old, ${randomM} By the way, we wish you a Happy Birthday ${username}, more grace and fun.`;
   } else if (newUserAge > 0 && bbmm <= bmm && bbdd <= bdd) {//Check if the users Birthday has reached
     return `You are ${newUserAge} years old, ${randomM}`;
-  }else if (newUserAge < 0) {
+  } else if(newUserAge > 0 && bbmm < bmm) {
+    return `You are ${newUserAge} years old, ${randomM}`;
+  } else if(newUserAge > 0 ){//Check if the users birth year has reached but his birthday hasn't reached yet
+    return `You are ${newUserAge - 1} years old, You will be ${newUserAge} years by ${bbdd}${checkDay(bbdd)} ${checkMonth(bbmm)} ${byy}, ${randomMessesge}`;
+  } else if (newUserAge < 0) {
     function removeBtn(){//removing recheck button on certain conditions
       setTimeout(() => {
         document.getElementById("re-check").style.display = "none";
@@ -312,113 +315,124 @@ importantSwitch.href="https://www.iamtsquare07.com/#portfolio";
 let count = 0;
 count++
 
-if(importantSwitch.innerHTML = "Portfolio"){
-function process(){
-  setConfirmUnload(true)
-  let fMessages = ["Never seen you this happy in the past, You're now so rich!","According to what I see, You are now a professional.","I know your secrets, but let's just pretend I did'nt. I can't do this, you are in love.","I can't believe what I am seeing, You now own 3 electric cars?","Wow! I am out of words,  You lucky bastard :)😂","Now, this is what I called a bright future."],
-  pMessages = ["Yeehoo! this is the past, this old boys have no idea what Bitcoin mean, WTF!","I bet you must have loved this, except for this RAM, Damn this old Gadget!","There is nothing worth regretting right here, for God's sake there is no Facebook or Instagram","Well, you better be right where you are now buddy! unless you enjoy riding horses.","Truth be told, you missed Nothing in the past depending on what I am seeing","I bet you won't want to be here, I can't believe this people are surviving here."],
-  lMessages = ["you have got to be kidding me, you can't remember this?","Well, if you don't remember this, I can't help you.","But you think this is from the past? LOL!","Are you serious? This is like yesterday.","I'll tell you want, stop playing around here.","Let's say you thought you were happier, but you are now better."],
-  ranNum = Math.floor(Math.random()*6),
-  randomFTMessage = fMessages[ranNum],
-  randomPmessage = pMessages[ranNum],
-  randomLTmessage = lMessages[ranNum];
-let newAgeValue = Number(userAge.value);
-let newYear = Number(playerYear.value);
-function twentyTwenty(y){
-  if(y === 2020){
-    return " Anyway, apart from Godamned lockdowns and Corona virus, what else can 2020 get you."
-  }else {
-    return "";
-  }
-}
-//An AI Algorithm for user persona
-function ai(input){
-let AI = document.querySelector("#Ai");
-let Relationship = ["Single","Married","Divorced","Complicated"],
-Cars = [3,4,5,6,7,8,9,10,12,1],
-Job = ["Programmer","Social Media Influencer","Alaye","Doctor","Bitcoin Trader","CEO","Pastor","Artist","Engineer","Gamer"],
-Children = [2,3,4,5,6,7,"Unknown",4,1,"None"],
-Networth = ["1 Million","50 Million","70 Million","Broke","100 Million","10 Billion","100 Billion","700 Billion","1 Billion","It is well"],
-UploadedMind = ["Mind Detected","Corrupted","No Mind Detected","Error 370"],
-aiPicker = Math.floor(Math.random()*10),
-aiRandom = Math.floor(Math.random()*4)
-  setTimeout(() => {
-    AI.innerHTML = `<h4 style="color:goldenrod">Your Profile In ${newYear}</h4><table>
-<tr>
-    <td><b>Relationship Status:</b></td>
-    <td>${Relationship[aiRandom]}</td>
-</tr>
-<tr>
-    <td><b>Cars:</b></td>
-    <td>${Cars[aiPicker]}</td>
-</tr>
-<tr>
-    <td><b>Job Title:</b></td>
-    <td>${Job[aiPicker]}</td>
-</tr>
-<tr>
-    <td><b>Children:</b></td>
-    <td>${Children[aiPicker]}</td>
-</tr>
-<tr>
-    <td><b>Networth:</b></td>
-    <td>${Networth[aiPicker]}</td>
-</tr>
-<tr>
-    <td>Uploaded Mind Status:</td>
-    <td>${UploadedMind[aiRandom]}</td>
-</tr>
-</table>`;
-    if(input){
-
-    }
-  }, 1000);
-}
-//Converting current years to get real age
-function yourAge(age,year){
-  const yearDifference = year - yearNow;
-  const newAge = age + yearDifference;
-  if (newAge > 0 && newAge < age ){//Check if the year is in the future but not before birthday
-    return `You were ${newAge} years in the year ${year}, ${randomLTmessage}${twentyTwenty(year)}`;
-  }else if(newAge === age){
-      return `You are ${newAge} years in ${year}. But why ${year}? you can use Age Calculator, I am not good at this.`;
-  }else if (newAge > 0){
-    return `Welcome to the Future<br><br>You are now ${newAge} years, We are in ${year}.<br><br><span style="color:aqua;">Looking you up...</span><br><img width="170px" height: auto; src="https://wallpaperaccess.com/full/1371433.jpg"></img><br> ${randomFTMessage}`;
-  }else if(newAge < 0){
-    return `The year is ${year}, it was ${Math.abs(newAge)} years before you were born.<br><br><span style="color:aqua;">Checking what the future look like: </span><br><br> ${randomPmessage}`;
-  }
-}
-
-if (userAge.value.length > 1 && playerYear.value.length > 1){
-  setTimeout(() => {
-    successMessage.innerHTML = "Initializing...";
-  }, 50);
+  if(importantSwitch.innerHTML = "Portfolio"){
   
-  setTimeout(() => {
-    successMessage.innerHTML = "Querying Time Machine...";
-    programBody.innerHTML = `<img src="${loadImage}" width="50px" height="auto">`;
-    setTimeout(() => {
-      programBody.innerHTML = yourAge(newAgeValue,newYear) + `<br><div id="Ai"></div><br><button class="reload" onclick="process()">Re-check</button>`;
-      successMessage.innerHTML = "Successful!";
-      switchBtn.innerHTML = `<span>Switch To: </span><button id="mySwitch" onclick="switchProgram()">Age Calculator</button>`;
-      if (newYear > yearNow){
-        ai(true);
+    function process(){
+      setConfirmUnload(true)
+      let fMessages = ["Never seen you this happy in the past, You're now so rich!","According to what I see, You are now a professional.","I know your secrets, but let's just pretend I did'nt. I can't do this, you are in love.","I can't believe what I am seeing, You now own 3 electric cars?","Wow! I am out of words,  You lucky bastard :)😂","Now, this is what I called a bright future."],
+      pMessages = ["Yeehoo! this is the past, this old boys have no idea what Bitcoin mean, WTF!","I bet you must have loved this, except for this RAM, Damn this old Gadget!","There is nothing worth regretting right here, for God's sake there is no Facebook or Instagram","Well, you better be right where you are now buddy! unless you enjoy riding horses.","Truth be told, you missed Nothing in the past depending on what I am seeing","I bet you won't want to be here, I can't believe this people are surviving here."],
+      lMessages = ["you have got to be kidding me, you can't remember this?","Well, if you don't remember this, I can't help you.","But you think this is from the past? LOL!","Are you serious? This is like yesterday.","I'll tell you want, stop playing around here.","Let's say you thought you were happier, but you are now better."],
+      ranNum = Math.floor(Math.random()*6),
+      randomFTMessage = fMessages[ranNum],
+      randomPmessage = pMessages[ranNum],
+      randomLTmessage = lMessages[ranNum];
+    let newAgeValue = Number(userAge.value);
+    let newYear = Number(playerYear.value);
+    function twentyTwenty(y){
+      if(y === 2020){
+        return " Anyway, apart from Godamned lockdowns and Corona virus, what else can 2020 get you."
+      }else {
+        return "";
       }
-    }, 5000)
-  }, 1000)
-}else if(userAge.value == ""){
-  successMessage.innerHTML = "Please add you age";
-  userAge.focus();
-}else if(playerYear.value == ""){
-  successMessage.innerHTML = "Please add a valid year";
-  playerYear.focus();
-}else {
-  console.log("Something went wrong");
-}
-callPopup();
+    }
+    
+    
+    if(username.value === "" || username.length === 0){
+      console.log("User has not added any name")
+      username = "Anonymous Travela";
+    }else {
+      console.log("User has provided a name");
+    }
+    //An AI Algorithm for user persona
+    function ai(input){
+    let AI = document.querySelector("#Ai");
+    let Relationship = ["Single","Married","Divorced","Complicated"],
+    Cars = [3,4,5,6,7,8,9,10,12,1],
+    Job = ["Programmer","Social Media Influencer","Alaye","Doctor","Bitcoin Trader","CEO","Pastor","Artist","Engineer","Gamer"],
+    Children = [2,3,4,5,6,7,"Unknown",4,1,"None"],
+    Networth = ["1 Million","50 Million","70 Million","Broke","100 Million","10 Billion","100 Billion","700 Billion","1 Billion","It is well"],
+    UploadedMind = ["Mind Detected","Corrupted","No Mind Detected","Error 370"],
+    aiPicker = Math.floor(Math.random()*10),
+    aiRandom = Math.floor(Math.random()*4)
+      setTimeout(() => {
+        AI.innerHTML = `<h4 style="color:goldenrod">Your Profile In ${newYear}</h4><table>
+    <tr>
+        <td><b>Relationship Status:</b></td>
+        <td>${Relationship[aiRandom]}</td>
+    </tr>
+    <tr>
+        <td><b>Cars:</b></td>
+        <td>${Cars[aiPicker]}</td>
+    </tr>
+    <tr>
+        <td><b>Job Title:</b></td>
+        <td>${Job[aiPicker]}</td>
+    </tr>
+    <tr>
+        <td><b>Children:</b></td>
+        <td>${Children[aiPicker]}</td>
+    </tr>
+    <tr>
+        <td><b>Networth:</b></td>
+        <td>${Networth[aiPicker]}</td>
+    </tr>
+    <tr>
+        <td>Uploaded Mind Status:</td>
+        <td>${UploadedMind[aiRandom]}</td>
+    </tr>
+    </table>`;
+        if(input){
+    
+        }
+      }, 1000);
+    }
+    //Converting current years to get real age
+    function yourAge(age,year){
+      const yearDifference = year - yearNow;
+      const newAge = age + yearDifference;
+      if (newAge > 0 && newAge < age ){//Check if the year is in the future but not before birthday
+        return `You were ${newAge} years in the year ${year}, ${randomLTmessage}${twentyTwenty(year)}`;
+      }else if(newAge === age){
+          return `You are ${newAge} years in ${year}. But why ${year}? you can use Age Calculator, I am not good at this.`;
+      }else if (newAge > 0){
+        return `${username}! Welcome to the Future.<br><br>You are now ${newAge} years, We are in ${year}.<br><br><span style="color:aqua;">Looking you up...<br><span style="border:2px solid aqua;color:goldenrod;font-variant: normal;font-style: oblique;">${username} is Found in ${year} Database</span></span><br><img width="170px" height: auto; src="https://wallpaperaccess.com/full/1371433.jpg"></img><br> ${randomFTMessage}`;
+      }else if(newAge < 0){
+        return `The year is ${year}, it was ${Math.abs(newAge)} years before you were born.<br><br><span style="color:aqua;">Checking what the future look like: </span><br><br> ${randomPmessage}`;
+      }
+    }
+    
+    if (userAge.value.length > 1 && playerYear.value.length > 1){
+      setTimeout(() => {
+        successMessage.innerHTML = "Initializing...";
+      }, 50);
+      
+      setTimeout(() => {
+        successMessage.innerHTML = "Querying Time Machine...";
+        programBody.innerHTML = `<img src="${loadImage}" width="50px" height="auto">`;
+        setTimeout(() => {
+          programBody.innerHTML = yourAge(newAgeValue,newYear) + `<br><div id="Ai"></div><br><button class="reload" onclick="process()">Re-check</button>`;
+          successMessage.innerHTML = "Successful!";
+          switchBtn.innerHTML = `<span>Switch To: </span><button id="mySwitch" onclick="switchProgram()">Age Calculator</button>`;
+          if (newYear > yearNow){
+            ai(true);
+          }
+        }, 5000)
+      }, 1000)
+    }else if(userAge.value == ""){
+      successMessage.innerHTML = "Please add you age";
+      userAge.focus();
+    }else if(playerYear.value == ""){
+      successMessage.innerHTML = "Please add a valid year";
+      playerYear.focus();
+    }else {
+      console.log("Something went wrong");
+    }
+    callPopup();
+    
+    }
+    }
 
-}
-}
+
 /*
 let theAge = Number(prompt("Enter your age", "23"));
 let theYear = Number(prompt("Enter any year", "2100"));
@@ -435,6 +449,46 @@ setTimeout(() => {
   }
 }, 2000)
 }, 500) */
+let chatOff = true;
+setTimeout(() => {
+  let chatBox = document.querySelector("#chat"),
+  botBox = document.querySelector(".float"),
+  exitChat = document.querySelector(".closechat"),
+  appBody = document.querySelector(".container"),
+  chats = document.querySelector(".botInput"),
+  chatMessage = document.querySelector(".chatbody");
+  botBox.style.display = "block";
+
+  botBox.addEventListener("click",() => {
+    if(chatOff){
+      chatBox.style.display = "block";
+      chatOff = false;
+    }else {
+      chatBox.style.display = "none";
+      chatOff = true;
+    }
+  
+  });
+  exitChat.addEventListener("click",() => {
+    chatBox.style.display = "none";
+  });
+  appBody.addEventListener("click",() => {
+    chatBox.style.display = "none";
+  });
+  
+
+  const sendMessage = () => {
+    if(chats.value.length > 0 && chats.value != ""){
+      chats.value = "";
+      chatMessage.innerHTML = "Message not sent, server unreachable.";
+    }
+  }
+  chats.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') sendMessage();
+    });
+  
+}, 2000);
+
 let menu = document.querySelector(".nav");
 let menuButton = document.querySelector("#menuBtn");
 let menuOn = true;
@@ -480,3 +534,4 @@ const blackMode = () => {
   }
 
 }
+
