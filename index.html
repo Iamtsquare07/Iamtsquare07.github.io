@@ -18,7 +18,7 @@ body {
 }
 #Ai {
 -webkit-animation-name: fade;
--webkit-animation-duration: 2s;
+-webkit-animation-duration: 7s;
 animation-name: fade;
 animation-duration: 7s;
 }
@@ -87,6 +87,7 @@ input{
     color: white;
     font-weight: bold;
 }
+
 #body {
     color: #cad6fa !important;
     font-size: 4vw;
@@ -295,6 +296,86 @@ tr:hover {background-color: rgb(125, 143, 241);}
     margin-left: 5px;
 }
 
+.float{
+	position:fixed;
+	width:50px;
+	height:50px;
+	bottom:40px;
+	right:20px;
+	background-color:#25d366;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+    font-size:30px;
+	box-shadow: 2px 2px 3px #999;
+    z-index:100;
+    display:none;
+    animation: slider .10s ease-in;
+    animation-duration: 0.4s;
+}
+
+@keyframes slider {
+  0% {
+    transform: skewX(1deg) translateX(50px);
+  }
+  100% {
+    transform: skew(0deg);
+  }
+}
+.float:hover {
+    background-color: blue;
+}
+.float a:hover {
+    background-color: transparent;
+}
+.my-float{
+	margin-top:12px;
+    
+}
+#chat {
+    background-color: white;
+    height: 300px;
+    width: 300px;
+    overflow: hidden;
+    min-height: 280px;
+    min-width: 250px;
+    overflow-y: scroll;
+    margin: auto;
+    float: right;
+    bottom: 333px;
+    z-index: 999;
+    position: relative;
+    border-radius: 5px;
+    animation: slideup .10s ease-in;
+    animation-duration: 0.4s;
+    display: none;
+    color: #081a4e;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 10px;
+}
+@keyframes slideup {
+  0% {
+    transform: skewY(1deg) translateY(20px);
+  }
+  100% {
+    transform: skew(0deg);
+  }
+}
+
+.botInput {
+    box-shadow: 0.5px 0.3px 1px 2px transparent;
+    width: 80%;
+    border: 1px solid transparent;
+    color: black;
+    border-radius: 5px;
+    border-collapse: collapse;
+}
+.botInput:hover{
+    background-color: transparent;
+    border: inherit;
+}
+
+
 /*Responsive Styles */
 @media only screen and (max-width: 339px) {
     .left {
@@ -446,12 +527,11 @@ tr:hover {background-color: rgb(125, 143, 241);}
     text-decoration: none;
     padding: 5px;
     color: white;
-    border-radius: 3px
+    border-radius: 3px;
     }
     a:hover {
     background-color: #024af7;
     color:black;
-
     }
     #menuBtn {
     border-radius: 2px;
@@ -483,7 +563,7 @@ tr:hover {background-color: rgb(125, 143, 241);}
     <div class="exit-intent-popup">
         <div class="myModal">
             <h4 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;color: goldenrod;font-variant: small-caps;">Are you leaving?</h4>
-            <p>I will miss you😥 <br><img width="80px" height: auto; src="https://www.seekpng.com/png/full/560-5609130_free-boss-baby-pngs-boss-baby-no-background.png"></img><br>But wait, have you taken a screenshot of your time travel profile?
+            <p>I will miss you😥 <br><img width="80px" height: auto; src="https://www.seekpng.com/png/full/560-5609130_free-boss-baby-pngs-boss-baby-no-background.png"><br>But wait, have you taken a screenshot of your time travel profile?
             <br>Even if you don't want to show me to your friends, atleast to remember me.😍
             </p>
             <span class="close">x</span>
@@ -521,6 +601,18 @@ tr:hover {background-color: rgb(125, 143, 241);}
 </div>
 </div>
 <div style=" background-color: #024af7;padding: 5px;margin: auto;width: fit-content;border-radius: 4px;font-weight: 700;"><a style="padding-left: 0px;" href="https://www.facebook.com/sharer/sharer.php?u=https://iamtsquare07.github.io/" target="_blank"><i class="fa fa-share-alt"></i> SHARE</a></div>
+<div id="chat"><div class="closechat" style="float: right;font-weight: 900;padding: 5px;cursor: pointer;">X</div><br>
+<div class="chatbody" style="color: black;">Offline</div>
+
+<div style="margin-top: 220px;border-radius: 20px; background-color: #cad6fa;padding: 10px;">
+    <input class="botInput" type="text" placeholder="Message">
+    <i style="float: right;padding-top: 3px;" class="fa fa-camera" aria-hidden="true"></i>
+</div>
+</div>
+<div class="float"><a>
+    <i class="fa fa-comments-o my-float" aria-hidden="true"></i>
+    </a>
+</div>
 <script src="yourAge.js"></script>
 </body>
 </html>
