@@ -1,6 +1,8 @@
-## Time Travela 
+## My GitHub Page
 
-This application was created with love with the goal of making you smile.
+This is my official GitHub page, currently not updated, and is a default page to my fun project Time Travela.
+
+The application was created with love and with the goal of making you smile.
 
  You can check it out here: <a href="https://iamtsquare07.github.io/">Fun Travela</a>
 
