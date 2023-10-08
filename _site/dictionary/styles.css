@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Croissant+One&display=swap');
+
+body {
+  padding: 10px;
+  background-color: #000014;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+h1,
+h2,
+h3{
+  text-align: center;
+  margin-bottom: 20px;
+  color: rgba(255, 217, 0, 0.61);
+  font-family: 'Croissant One', cursive;
+}
+
+h4 {
+  padding: 5px;
+  margin: 0;
+}
+
+.dictionary {
+  margin: auto;
+  width: 87%;
+  margin-top: 80px;
+  background-color: #00006e;
+  padding: 50px 20px 50px 20px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px 1px #1b37b4;
+  color: #b6bff3;
+  text-align: center;
+  margin-left: -10px;
+  min-height: 400px;
+}
+
+ul {
+  list-style: none;
+  width: 100%;
+  padding: 0;
+}
+
+li {
+  text-align: left;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+}
+
+#input {
+  width: 80%;
+  padding: 10px;
+  border-radius: 3.2px;
+  border: solid 1px #0118ad;
+  background-color: #8a8aff;
+  display: block;
+  margin: auto;
+  font-family: Source Sans Pro;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  text-align: center;
+  color: #ffffff;
+}
+
+#input::placeholder {
+  color: #000014d7;
+}
+
+button {
+  width: 91px;
+  height: 37px;
+  border-radius: 25px;
+  border: solid 0.8px #01169c;
+  background-color: inherit;
+  margin-top: 48px;
+  font-family: Source Sans Pro;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  text-align: center;
+  color: #ffffff;
+  margin-right: -3px;
+}
+
+button:hover {
+  background-color: #1f233e;
+  border: solid 0.8px #4a4a4a;
+  color: #0087de;
+  cursor: pointer;
+}
+
+#responseField {
+  width: 90%;
+  border-radius: 5px;
+  border: solid 2px #0222ad;
+  margin: auto;
+  margin-top: 30px;
+  font-family: Source Sans Pro;
+  font-size: 16px;
+  text-align: left;
+  color: #ffffff;
+  overflow: hidden;
+  visibility: hidden;
+  padding: 5px;
+  padding-top: 20px;
+  line-height: 25px;
+}
+
+#result:hover {
+  background-color: #02008f;
+}
+
+#submit {
+  margin: 5px;
+}
+
+#submit:hover {
+  color: #ffffff;
+  cursor: pointer;
+}
+
+#submit:active {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: #ef6b68;
+  cursor: pointer;
+}
+
+#play {
+  background-color:#000000;
+  border-radius:50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+i {
+  font-size: 25px;
+  border-radius:50%;
+}
+
+@media only screen and (min-width: 1024px) {
+  .dictionary {
+    min-width: 800px;
+    width: 70%;
+    margin-left: auto;
+    margin-top: 5px;
+  }
+
+  .container {
+    width: 95%;
+  }
+
+  h2 {
+    margin-top: 0px;
+  }
+
+  #responseField {
+    width: 100%;
+    padding: 10px;
+  }
+}
